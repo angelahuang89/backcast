@@ -5,15 +5,17 @@ var AppView = Backbone.View.extend({
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);
     this.render();
-
+    
+    // render videoList instance
     this.videoList = new VideoListView({ 
-      el: $('.list'), 
+      el: '.list', 
       collection: this.videos 
     });
     
+    // render videoPlayer instance 
     this.videoPlayer = new VideoPlayerView({
       model: this.videos.at(0), 
-      el: $('.player'),
+      el: '.player',
       collection: this.videos
     });
   
@@ -27,14 +29,6 @@ var AppView = Backbone.View.extend({
 
   template: templateURL('src/templates/app.html'),
 
-  // select
-  // when a title is slected
-  // update the videoPlayer model / view to the selected
-  /*
-  select: function () {
-    this.model.on('change', videoPlayer.model(this)); //do something, update the VPV ???)
-  },
- */
 
 
 
